@@ -7,10 +7,21 @@ const path = require('path')
 module.exports = {
   dev: {
 
-    // Paths
+    // Paths 
+    // webpack-dev-server提供的
+    // 请求api目录  把请求转发到 target  
+    // 把路径做个替换 地址为api开头的 把请求地址改为static/mock文件夹下
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+      '/api': {
+        target: 'http://localhost:8080',//设置你调用的接口域名和端口号
+        changeOrigin: true,     //跨域
+        pathRewrite: {
+          '^/api': '/static/mock'       
+        }
+      }
+    },
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST

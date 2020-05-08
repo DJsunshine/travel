@@ -2,7 +2,7 @@
 <div>
   <div class="title">热销推荐</div>
   <ul>
-    <li class="item border-bottom" v-for="item of recommendList" :key="item.id">
+    <li class="item border-bottom" v-for="item of list" :key="item.id">
       <img class="item-img" :src="item.imgUrl" alt="">
       <div class="item-info">
         <p class="item-title">{{item.title}}</p>
@@ -17,20 +17,11 @@
 <script>
 export default {
   name: 'HomeRecommend',
+  props: {
+    list: Array
+  },
   data () {
     return {
-      recommendList: [{
-        id: '0001',
-        imgUrl:'http://img1.qunarzz.com/sight/p0/1505/18/18ffcca94b1b7ca2.water.jpg_200x200_9b0d2dc4.jpg',
-        title: '长恨歌',
-        desc: '多彩贵州城极地海洋世界',
-      },
-      {
-        id: '0002',
-        imgUrl:'http://img1.qunarzz.com/sight/p0/1505/18/18ffcca94b1b7ca2.water.jpg_200x200_9b0d2dc4.jpg',
-        title: '长恨歌',
-        desc: '多彩贵州城极地海洋世界',
-      }]
     }
   }
 }
