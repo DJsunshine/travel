@@ -7,7 +7,6 @@
       <div class="iconfont header-abs-back">&#xe624;</div>
     </router-link>
     <div class="header-fixed" 
-      v-show="!showAbs"
       :style="opacityStyle"
     >
       <router-link to="/">
@@ -46,9 +45,11 @@ export default {
     }
   },
   activated () {
+    console.log("增加监听滚动")
     window.addEventListener('scroll', this.handleScroll)
   },
   deactivated () {
+    console.log("移除监听滚动")
     window.removeEventListener('scroll',this.handleScroll)
   }
 }
